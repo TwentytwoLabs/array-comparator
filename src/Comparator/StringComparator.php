@@ -9,7 +9,6 @@ namespace TwentytwoLabs\ArrayComparator\Comparator;
  */
 class StringComparator implements ComparatorInterface
 {
-
     public function support($expected): bool
     {
         return '<string>' === $expected;

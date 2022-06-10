@@ -55,8 +55,8 @@ class AsserterTest extends TestCase
                 'unblocked' => 1,
                 'email_valid' => 1,
                 'password_valid' => 1,
-                'unconfirmed' => 1
-            ]
+                'unconfirmed' => 1,
+            ],
         ];
         $items = [
             'avatar' => null,
@@ -92,8 +92,8 @@ class AsserterTest extends TestCase
                 'unblocked' => 1,
                 'email_valid' => 1,
                 'password_valid' => 1,
-                'unconfirmed' => 1
-            ]
+                'unconfirmed' => 1,
+            ],
         ];
         $items = [
             'avatar' => null,
@@ -129,7 +129,7 @@ class AsserterTest extends TestCase
                 'unblocked' => 1,
                 'email_valid' => 1,
                 'password_valid' => 1,
-                'unconfirmed' => 1
+                'unconfirmed' => 1,
             ],
         ];
         $items = [
@@ -144,7 +144,7 @@ class AsserterTest extends TestCase
                 'unblocked' => 1,
                 'email_valid' => 1,
                 'password_valid' => 1,
-                'unconfirmed' => 1
+                'unconfirmed' => 1,
             ],
         ];
 
@@ -169,7 +169,7 @@ class AsserterTest extends TestCase
                 'unblocked' => 1,
                 'email_valid' => 1,
                 'password_valid' => 1,
-                'unconfirmed' => 1
+                'unconfirmed' => 1,
             ],
         ];
         $items = [
@@ -217,7 +217,7 @@ class AsserterTest extends TestCase
                 'unblocked' => 1,
                 'email_valid' => 1,
                 'password_valid' => 1,
-                'unconfirmed' => 1
+                'unconfirmed' => 1,
             ],
         ];
         $items = [
@@ -232,7 +232,7 @@ class AsserterTest extends TestCase
                 'unblocked' => 1,
                 'email_valid' => 1,
                 'password_valid' => 1,
-                'unconfirmed' => 1
+                'unconfirmed' => 1,
             ],
         ];
 

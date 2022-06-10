@@ -10,5 +10,6 @@ namespace TwentytwoLabs\ArrayComparator\Comparator;
 interface ComparatorInterface
 {
     public function support($expected): bool;
+
     public function compare($expected, $value): void;
 }

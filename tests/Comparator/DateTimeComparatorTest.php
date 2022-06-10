@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace TwentytwoLabs\ArrayComparator\Comparator\Tests;
 
 use PHPUnit\Framework\TestCase;
-use TwentytwoLabs\ArrayComparator\Comparator\DateComparator;
 use TwentytwoLabs\ArrayComparator\Comparator\DateTimeComparator;
 
 /**
