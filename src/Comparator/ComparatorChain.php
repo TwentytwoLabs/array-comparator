@@ -17,6 +17,7 @@ class ComparatorChain
         foreach ($this->comparators as $comparator) {
             if ($comparator->support($expected)) {
                 $comparator->compare($expected, $value);
+                break;
             }
         }
     }
