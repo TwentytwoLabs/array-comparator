@@ -6,9 +6,6 @@ namespace TwentytwoLabs\ArrayComparator;
 
 use TwentytwoLabs\ArrayComparator\Comparator\ComparatorChain;
 
-/**
- * Trait AsserterTrait.
- */
 trait AsserterTrait
 {
     private ComparatorChain $comparatorChain;
@@ -23,7 +20,12 @@ trait AsserterTrait
         return $this;
     }
 
-    private function assertValuesOfJson(array $expectedItem, array $item)
+    /**
+     * @param array<int|string, mixed> $expectedItem
+     * @param array<int|string, mixed> $item
+     * @throws \Exception
+     */
+    private function assertValuesOfJson(array $expectedItem, array $item): void
     {
         foreach ($expectedItem as $key => $expected) {
             if (\is_array($expected)) {
@@ -35,7 +37,13 @@ trait AsserterTrait
         }
     }
 
-    private function assertKeysOfJson(array $expectedKeys, array $columns, $parent = null)
+    /**
+     * @param array<int|string, mixed> $expectedKeys
+     * @param array<int|string, mixed> $columns
+     *
+     * @throws \Exception
+     */
+    private function assertKeysOfJson(array $expectedKeys, array $columns, ?string $parent = null): void
     {
         $keysMissing = array_diff($expectedKeys, $columns);
         $keys = array_diff($columns, $expectedKeys);
@@ -48,7 +56,12 @@ trait AsserterTrait
         }
 
         if (!empty($keysMissing)) {
-            $message = sprintf('%sKeys [%s] are missing %s', null !== $message ? $message.' and ' : '', implode(', ', $keysMissing), $messageParent);
+            $message = sprintf(
+                '%sKeys [%s] are missing %s',
+                null !== $message ? $message . ' and ' : '',
+                implode(', ', $keysMissing),
+                $messageParent
+            );
         }
 
         if (null !== $message) {

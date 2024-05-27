@@ -2,7 +2,7 @@
 <ruleset
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:noNamespaceSchemaLocation="vendor/squizlabs/php_codesniffer/phpcs.xsd"
-    name="ApiService"
+    name="ApiServiceBundle"
 >
     <arg name="basepath" value="."/>
     <arg name="extensions" value="php"/>
@@ -12,9 +12,10 @@
     <!-- Ignore warnings and show progress of the run -->
     <arg value="np"/>
 
-    <rule ref="PSR2"/>
+    <rule ref="PSR12"/>
 
     <file>./src</file>
-    <file>./tests</file>
+    <file>./tests/DependencyInjection</file>
+    <file>./tests/Factory</file>
+    <file>./tests/Pagination</file>
 </ruleset>
-

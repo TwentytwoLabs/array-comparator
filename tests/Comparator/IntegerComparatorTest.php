@@ -7,28 +7,21 @@ namespace TwentytwoLabs\ArrayComparator\Comparator\Tests;
 use PHPUnit\Framework\TestCase;
 use TwentytwoLabs\ArrayComparator\Comparator\IntegerComparator;
 
-/**
- * Class IntegerComparatorTest.
- *
- * @codingStandardsIgnoreFile
- *
- * @SuppressWarnings(PHPMD)
- */
-class IntegerComparatorTest extends TestCase
+final class IntegerComparatorTest extends TestCase
 {
-    public function testShouldNotSupportComparator()
+    public function testShouldNotSupportComparator(): void
     {
         $comparator = $this->getComparator();
         $this->assertFalse($comparator->support('<foo>'));
     }
 
-    public function testShouldSupportComparator()
+    public function testShouldSupportComparator(): void
     {
         $comparator = $this->getComparator();
         $this->assertTrue($comparator->support('<int>'));
     }
 
-    public function testShouldCompareValidData()
+    public function testShouldCompareValidData(): void
     {
         $comparator = $this->getComparator();
         $comparator->compare('<int>', 3);
@@ -38,7 +31,7 @@ class IntegerComparatorTest extends TestCase
     /**
      * @dataProvider getBadValues
      */
-    public function testShouldNotCompareValidData($value)
+    public function testShouldNotCompareValidData(mixed $value): void
     {
         $this->expectException(\Exception::class);
         $this->expectExceptionMessage(sprintf('The value %s is not an integer', $value));
@@ -47,7 +40,10 @@ class IntegerComparatorTest extends TestCase
         $comparator->compare('<int>', $value);
     }
 
-    public function getBadValues(): array
+    /**
+     * @return array<int, array<int, mixed>>
+     */
+    public static function getBadValues(): array
     {
         return [
             ['3'],

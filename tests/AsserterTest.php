@@ -14,14 +14,7 @@ use TwentytwoLabs\ArrayComparator\Comparator\SameComparator;
 use TwentytwoLabs\ArrayComparator\Comparator\StringComparator;
 use TwentytwoLabs\ArrayComparator\Comparator\UuidComparator;
 
-/**
- * class AsserterTest.
- *
- * @codingStandardsIgnoreFile
- *
- * @SuppressWarnings(PHPMD)
- */
-class AsserterTest extends TestCase
+final class AsserterTest extends TestCase
 {
     use AsserterTrait;
 
@@ -38,10 +31,15 @@ class AsserterTest extends TestCase
         ;
     }
 
-    public function testShouldNotValidateArray()
+    public function testShouldNotValidateArray(): void
     {
+        $message = sprintf(
+            'Keys [bar] must not be present  in parent status and Keys [%s] are missing  in parent status',
+            implode(', ', ['unblocked', 'email_valid', 'password_valid', 'unconfirmed'])
+        );
+
         $this->expectException(\Exception::class);
-        $this->expectExceptionMessage('Keys [bar] must not be present  in parent status and Keys [unblocked, email_valid, password_valid, unconfirmed] are missing  in parent status');
+        $this->expectExceptionMessage($message);
 
         $expected = [
             'avatar' => null,
@@ -75,7 +73,7 @@ class AsserterTest extends TestCase
         $this->assertValuesOfJson($expected, $items);
     }
 
-    public function testShouldNotValidateArray2()
+    public function testShouldNotValidateArray2(): void
     {
         $this->expectException(\Exception::class);
         $this->expectExceptionMessage('The value 1 is different to 2');
@@ -115,7 +113,7 @@ class AsserterTest extends TestCase
         $this->assertValuesOfJson($expected, $items);
     }
 
-    public function testShouldValidateArray()
+    public function testShouldValidateArray(): void
     {
         $expected = [
             'avatar' => null,
@@ -152,7 +150,7 @@ class AsserterTest extends TestCase
         $this->assertTrue(true);
     }
 
-    public function testShouldNotValidateKeyOfArrayBecauseThereAreAdditionnalKeys()
+    public function testShouldNotValidateKeyOfArrayBecauseThereAreAdditionnalKeys(): void
     {
         $this->expectException(\Exception::class);
         $this->expectExceptionMessage('Keys [bar] must not be present');
@@ -192,7 +190,7 @@ class AsserterTest extends TestCase
         $this->assertKeysOfJson(array_keys($expected), array_keys($items));
     }
 
-    public function testShouldNotValidateKeyOfArrayBecauseThereAreMissingKeys()
+    public function testShouldNotValidateKeyOfArrayBecauseThereAreMissingKeys(): void
     {
         $this->expectException(\Exception::class);
         $this->expectExceptionMessage('Keys [bar] are missing ');
@@ -203,7 +201,7 @@ class AsserterTest extends TestCase
         $this->assertKeysOfJson(array_keys($expected), array_keys($items));
     }
 
-    public function testShouldValidateKeyOfArray()
+    public function testShouldValidateKeyOfArray(): void
     {
         $expected = [
             'avatar' => null,

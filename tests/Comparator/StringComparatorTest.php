@@ -7,35 +7,28 @@ namespace TwentytwoLabs\ArrayComparator\Comparator\Tests;
 use PHPUnit\Framework\TestCase;
 use TwentytwoLabs\ArrayComparator\Comparator\StringComparator;
 
-/**
- * Class StringComparatorTest.
- *
- * @codingStandardsIgnoreFile
- *
- * @SuppressWarnings(PHPMD)
- */
-class StringComparatorTest extends TestCase
+final class StringComparatorTest extends TestCase
 {
-    public function testShouldNotSupportComparator()
+    public function testShouldNotSupportComparator(): void
     {
         $comparator = $this->getComparator();
         $this->assertFalse($comparator->support('<foo>'));
     }
 
-    public function testShouldSupportComparator()
+    public function testShouldSupportComparator(): void
     {
         $comparator = $this->getComparator();
         $this->assertTrue($comparator->support('<string>'));
     }
 
-    public function testShouldCompareValidData()
+    public function testShouldCompareValidData(): void
     {
         $comparator = $this->getComparator();
         $comparator->compare('<string>', 'Lorem Ipsum');
         $this->assertTrue(true);
     }
 
-    public function testShouldNotCompareValidData()
+    public function testShouldNotCompareValidData(): void
     {
         $this->expectException(\Exception::class);
         $this->expectExceptionMessage('The value 3 is not a string');
@@ -44,7 +37,7 @@ class StringComparatorTest extends TestCase
         $comparator->compare('<string>', 3);
     }
 
-    public function testShouldNotCompareValidDataBecauseValueIsEmpty()
+    public function testShouldNotCompareValidDataBecauseValueIsEmpty(): void
     {
         $this->expectException(\Exception::class);
         $this->expectExceptionMessage('The value  is empty');

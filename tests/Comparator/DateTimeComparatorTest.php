@@ -7,28 +7,21 @@ namespace TwentytwoLabs\ArrayComparator\Comparator\Tests;
 use PHPUnit\Framework\TestCase;
 use TwentytwoLabs\ArrayComparator\Comparator\DateTimeComparator;
 
-/**
- * Class DateTimeComparatorTest.
- *
- * @codingStandardsIgnoreFile
- *
- * @SuppressWarnings(PHPMD)
- */
-class DateTimeComparatorTest extends TestCase
+final class DateTimeComparatorTest extends TestCase
 {
-    public function testShouldNotSupportComparator()
+    public function testShouldNotSupportComparator(): void
     {
         $comparator = $this->getComparator();
         $this->assertFalse($comparator->support('<foo>'));
     }
 
-    public function testShouldSupportComparator()
+    public function testShouldSupportComparator(): void
     {
         $comparator = $this->getComparator();
         $this->assertTrue($comparator->support('<dateTime>'));
     }
 
-    public function testShouldCompareValidData()
+    public function testShouldCompareValidData(): void
     {
         $comparator = $this->getComparator();
         $comparator->compare('<dateTime>', '2021-09-22T14:45:59+02:00');
@@ -38,7 +31,7 @@ class DateTimeComparatorTest extends TestCase
     /**
      * @dataProvider getBadValue
      */
-    public function testShouldNotCompareValidData($value)
+    public function testShouldNotCompareValidData(string $value): void
     {
         $this->expectException(\Exception::class);
         $this->expectExceptionMessage(sprintf('The node value is \'"%s"\'', $value));
@@ -47,7 +40,10 @@ class DateTimeComparatorTest extends TestCase
         $comparator->compare('<dateTime>', $value);
     }
 
-    public function getBadValue(): array
+    /**
+     * @return array<int, string[]>
+     */
+    public static function getBadValue(): array
     {
         return [
             ['ven. 10 juin 2022 10:31:26 CEST'],

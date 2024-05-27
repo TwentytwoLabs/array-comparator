@@ -1,17 +1,13 @@
-
-name: CI
-
-on:
-   push:
-   pull_request:
+name: Tests
+on: [push, pull_request]
 
 jobs:
-   latest:
+   tests:
       name: PHP ${{ matrix.php }} Latest
       runs-on: ubuntu-latest
       strategy:
          matrix:
-            php: ['7.4', '8.0', '8.1']
+            php: ['8.1', '8.2', '8.3']
 
       steps:
          - name: Checkout code

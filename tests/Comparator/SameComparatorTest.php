@@ -7,29 +7,22 @@ namespace TwentytwoLabs\ArrayComparator\Comparator\Tests;
 use PHPUnit\Framework\TestCase;
 use TwentytwoLabs\ArrayComparator\Comparator\SameComparator;
 
-/**
- * Class SameComparatorTest.
- *
- * @codingStandardsIgnoreFile
- *
- * @SuppressWarnings(PHPMD)
- */
-class SameComparatorTest extends TestCase
+final class SameComparatorTest extends TestCase
 {
-    public function testShouldSupportComparator()
+    public function testShouldSupportComparator(): void
     {
         $comparator = $this->getComparator();
         $this->assertTrue($comparator->support('foo'));
     }
 
-    public function testShouldCompareValidData()
+    public function testShouldCompareValidData(): void
     {
         $comparator = $this->getComparator();
         $comparator->compare('foo', 'foo');
         $this->assertTrue(true);
     }
 
-    public function testShouldNotCompareValidData()
+    public function testShouldNotCompareValidData(): void
     {
         $this->expectException(\Exception::class);
         $this->expectExceptionMessage('The value foo is different to bar');

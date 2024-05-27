@@ -4,15 +4,12 @@ declare(strict_types=1);
 
 namespace TwentytwoLabs\ArrayComparator\Comparator;
 
-/**
- * class ComparatorChain.
- */
 class ComparatorChain
 {
     /** @var ComparatorInterface[] */
     private array $comparators = [];
 
-    public function compare($expected, $value)
+    public function compare(mixed $expected, mixed $value): void
     {
         foreach ($this->comparators as $comparator) {
             if ($comparator->support($expected)) {

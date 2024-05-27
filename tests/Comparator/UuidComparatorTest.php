@@ -7,35 +7,28 @@ namespace TwentytwoLabs\ArrayComparator\Comparator\Tests;
 use PHPUnit\Framework\TestCase;
 use TwentytwoLabs\ArrayComparator\Comparator\UuidComparator;
 
-/**
- * Class UuidComparatorTest.
- *
- * @codingStandardsIgnoreFile
- *
- * @SuppressWarnings(PHPMD)
- */
-class UuidComparatorTest extends TestCase
+final class UuidComparatorTest extends TestCase
 {
-    public function testShouldNotSupportComparator()
+    public function testShouldNotSupportComparator(): void
     {
         $comparator = $this->getComparator();
         $this->assertFalse($comparator->support('<foo>'));
     }
 
-    public function testShouldSupportComparator()
+    public function testShouldSupportComparator(): void
     {
         $comparator = $this->getComparator();
         $this->assertTrue($comparator->support('<uuid>'));
     }
 
-    public function testShouldCompareValidData()
+    public function testShouldCompareValidData(): void
     {
         $comparator = $this->getComparator();
         $comparator->compare('<uuid>', 'Lorem Ipsum');
         $this->assertTrue(true);
     }
 
-    public function testShouldNotCompareValidData()
+    public function testShouldNotCompareValidData(): void
     {
         $this->expectException(\Exception::class);
         $this->expectExceptionMessage('The value 3 is not an uuid');
@@ -44,7 +37,7 @@ class UuidComparatorTest extends TestCase
         $comparator->compare('<uuid>', 3);
     }
 
-    public function testShouldNotCompareValidDataBecauseValueIsEmpty()
+    public function testShouldNotCompareValidDataBecauseValueIsEmpty(): void
     {
         $this->expectException(\Exception::class);
         $this->expectExceptionMessage('The value  is empty');
