@@ -22,7 +22,7 @@ final class SameComparatorTest extends TestCase
         $this->assertTrue(true);
     }
 
-    public function testShouldNotCompareValidData(): void
+    public function testShouldNotCompareValidDataBecauseValuesAreDifferent(): void
     {
         $this->expectException(\Exception::class);
         $this->expectExceptionMessage('The value foo is different to bar');

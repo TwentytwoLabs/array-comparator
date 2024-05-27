@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace TwentytwoLabs\ArrayComparator\Comparator\Tests;
 
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 use TwentytwoLabs\ArrayComparator\Comparator\DateTimeComparator;
 
@@ -28,10 +29,8 @@ final class DateTimeComparatorTest extends TestCase
         $this->assertTrue(true);
     }
 
-    /**
-     * @dataProvider getBadValue
-     */
-    public function testShouldNotCompareValidData(string $value): void
+    #[DataProvider('getBadValues')]
+    public function testShouldNotCompareValidDataBecauseItIsNotADateTime(string $value): void
     {
         $this->expectException(\Exception::class);
         $this->expectExceptionMessage(sprintf('The node value is \'"%s"\'', $value));
@@ -43,7 +42,7 @@ final class DateTimeComparatorTest extends TestCase
     /**
      * @return array<int, string[]>
      */
-    public static function getBadValue(): array
+    public static function getBadValues(): array
     {
         return [
             ['ven. 10 juin 2022 10:31:26 CEST'],

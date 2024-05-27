@@ -28,7 +28,7 @@ final class StringComparatorTest extends TestCase
         $this->assertTrue(true);
     }
 
-    public function testShouldNotCompareValidData(): void
+    public function testShouldNotCompareValidDataBecauseItIsNotAString(): void
     {
         $this->expectException(\Exception::class);
         $this->expectExceptionMessage('The value 3 is not a string');

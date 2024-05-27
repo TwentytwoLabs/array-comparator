@@ -4,10 +4,7 @@ declare(strict_types=1);
 
 namespace TwentytwoLabs\ArrayComparator\Comparator;
 
-/**
- * class ArrayComparator.
- */
-class ArrayComparator implements ComparatorInterface
+final class ArrayComparator implements ComparatorInterface
 {
     public function support(mixed $expected): bool
     {

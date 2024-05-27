@@ -28,7 +28,7 @@ final class UuidComparatorTest extends TestCase
         $this->assertTrue(true);
     }
 
-    public function testShouldNotCompareValidData(): void
+    public function testShouldNotCompareValidDataBecauseItIsNotAnUuid(): void
     {
         $this->expectException(\Exception::class);
         $this->expectExceptionMessage('The value 3 is not an uuid');

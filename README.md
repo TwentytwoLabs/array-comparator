@@ -1,10 +1,12 @@
-#Array Comparator
+# Array Comparator
 
-This librairy can validate array in recursive. If one or more fields not match, there is an exception
+This library can validate array in recursive. If one or more fields not match, there is an exception
 
 In some cases the need for more advanced matching arises.
 All custom functions is used in place of the string value they are validating
 
+- `<array>`
+  - Match only if value is an array or json object
 - `<date>`
   - Regex `^[0-9]{4}-[0-9]{2}-[0-9]{2}$`
   - Ex: `2022-06-01`
@@ -17,3 +19,5 @@ All custom functions is used in place of the string value they are validating
 - `<string>`
   - Match only if value is a string
   - Ex: `"Foo"`
+- `<uuid>`
+  - Match only if value is an uuid

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace TwentytwoLabs\ArrayComparator\Comparator\Tests;
 
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 use TwentytwoLabs\ArrayComparator\Comparator\IntegerComparator;
 
@@ -28,10 +29,8 @@ final class IntegerComparatorTest extends TestCase
         $this->assertTrue(true);
     }
 
-    /**
-     * @dataProvider getBadValues
-     */
-    public function testShouldNotCompareValidData(mixed $value): void
+    #[DataProvider('getBadValues')]
+    public function testShouldNotCompareValidDataBecauseItIsNotAnInt(mixed $value): void
     {
         $this->expectException(\Exception::class);
         $this->expectExceptionMessage(sprintf('The value %s is not an integer', $value));
